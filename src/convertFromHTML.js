@@ -31,7 +31,7 @@ const REGEX_BLOCK_DELIMITER = new RegExp('\r', 'g');
 
 // Block tag flow is different because LIs do not have
 // a deterministic style ;_;
-const blockTags = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li', 'blockquote', 'pre'];
+const blockTags = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li', 'blockquote', 'pre', 'code'];
 const inlineTags = {
   b: 'BOLD',
   code: 'CODE',
@@ -160,6 +160,8 @@ function getBlockTypeForTag(tag, lastList) {
     case 'blockquote':
       return 'blockquote';
     case 'pre':
+      return 'code-block';
+    case 'code':
       return 'code-block';
     case 'div':
     case 'p':
