@@ -17,7 +17,9 @@ import defaultBlockHTML from './default/defaultBlockHTML';
 
 const NESTED_BLOCK_TYPES = [
   'ordered-list-item',
-  'unordered-list-item'
+  'unordered-list-item',
+  'code-block',
+  'blockquote'
 ];
 
 const defaultEntityToHTML = (entity, originalText) => {
