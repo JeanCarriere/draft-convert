@@ -3,7 +3,14 @@ import splitReactElement from './splitReactElement';
 
 const getElementTagLength = (element, type = 'start') => {
   if (React.isValidElement(element)) {
-    const length = splitReactElement(element)[type].length;
+    let split = splitReactElement(element);
+    if (split['start'] === undefined) {
+      split = {
+        start: split,
+        end: ''
+      };
+    }
+    const length = split.length;
 
     const child = React.Children.toArray(element.props.children)[0];
     return length + (child && React.isValidElement(child)
